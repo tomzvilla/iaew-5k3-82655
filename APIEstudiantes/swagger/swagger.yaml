@@ -1,0 +1,104 @@
+openapi: 3.0.0
+info:
+  title: API de Estudiantes
+  version: 1.0.0
+  description: API para gestionar estudiantes.
+
+paths:
+  /api/estudiantes:
+    get:
+      summary: Obtener todos los estudiantes
+      operationId: GetStudents
+      responses:
+        '200':
+          description: Lista de estudiantes.
+        '404':
+          description: No se encontraron estudiantes.
+
+    post:
+      summary: Agregar un nuevo estudiante
+      operationId: PostStudent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '201':
+          description: Estudiante creado con éxito.
+        '400':
+          description: Solicitud incorrecta.
+
+  /api/estudiantes/{id}:
+    get:
+      summary: Obtener un estudiante por ID
+      operationId: GetStudentById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Estudiante encontrado.
+        '404':
+          description: Estudiante no encontrado.
+
+    put:
+      summary: Actualizar un estudiante por ID
+      operationId: PutStudent
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          description: Estudiante actualizado con éxito.
+        '404':
+          description: Estudiante no encontrado.
+        '400':
+          description: Solicitud incorrecta.
+
+    delete:
+      summary: Eliminar un estudiante por ID
+      operationId: DeleteStudent
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Estudiante eliminado con éxito.
+        '404':
+          description: Estudiante no encontrado.
+
+components:
+  schemas:
+    Student:
+      type: object
+      properties:
+        Nombre:
+          type: string
+        Apellido:
+          type: string
+        BirthDate:
+          type: string
+        Email:
+          type: string
+      required:
+        - Nombre
+        - Apellido
+        - BirthDate
+        - Email
