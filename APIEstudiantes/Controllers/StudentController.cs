@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Authorization;
 namespace APIEstudiantes.Controllers;
 
 [ApiController]
 [Route("api/estudiantes")]
+[Authorize]
 public class StudentController : ControllerBase
 {
 
@@ -47,6 +48,7 @@ public class StudentController : ControllerBase
     }
 
     [HttpGet(Name = "GetStudents")]
+    [Authorize("read:estudiantes")]
     public ActionResult<Student> GetStudents()
     {
         var students = Students;
@@ -60,6 +62,7 @@ public class StudentController : ControllerBase
     }
 
     [HttpGet("{id}", Name = "GetStudentById")]
+    [Authorize("read:estudiantes")]
     public ActionResult<Student> GetStudentById(int id)
     {
         var student = Students.FirstOrDefault(e => e.Id == id);
@@ -73,6 +76,7 @@ public class StudentController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize("write:estudiantes")]
     public ActionResult<Student> PostStudent([FromBody] Student inputStudent)
     {
         int newId = Students.Count + 1;
@@ -91,6 +95,7 @@ public class StudentController : ControllerBase
     }
 
     [HttpPut("{id}", Name="PutStudent")]
+    [Authorize("write:estudiantes")]
     public ActionResult<Student> PutStudent(int id, [FromBody] Student inputStudent)
     {
         var student = Students.Find(std => std.Id == id);
@@ -109,6 +114,7 @@ public class StudentController : ControllerBase
     }
 
     [HttpDelete("{id}", Name="DeleteStudent")]
+    [Authorize("write:estudiantes")]
     public ActionResult<Student> DeleteStudent(int id)
     {
         var student = Students.Find(std => std.Id == id);

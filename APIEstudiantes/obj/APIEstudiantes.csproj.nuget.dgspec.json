@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Integracion\\APIEstudiantes\\APIEstudiantes.csproj": {}
+    "D:\\IAW\\iaew-5k3-82655\\APIEstudiantes\\APIEstudiantes.csproj": {}
   },
   "projects": {
-    "D:\\Integracion\\APIEstudiantes\\APIEstudiantes.csproj": {
+    "D:\\IAW\\iaew-5k3-82655\\APIEstudiantes\\APIEstudiantes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Integracion\\APIEstudiantes\\APIEstudiantes.csproj",
+        "projectUniqueName": "D:\\IAW\\iaew-5k3-82655\\APIEstudiantes\\APIEstudiantes.csproj",
         "projectName": "APIEstudiantes",
-        "projectPath": "D:\\Integracion\\APIEstudiantes\\APIEstudiantes.csproj",
+        "projectPath": "D:\\IAW\\iaew-5k3-82655\\APIEstudiantes\\APIEstudiantes.csproj",
         "packagesPath": "C:\\Users\\a7\\.nuget\\packages\\",
-        "outputPath": "D:\\Integracion\\APIEstudiantes\\obj\\",
+        "outputPath": "D:\\IAW\\iaew-5k3-82655\\APIEstudiantes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\a7\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.3, )"
